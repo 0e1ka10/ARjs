@@ -1,38 +1,33 @@
 <!doctype html>
 <html>
 
-<!-- header file -->
+<!-- ヘッダファイル -->
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>New Year Card</title>
-    <!-- A-Frmaeの読み込み -->
-    <script src="https://aframe.io/release/0.8.2/aframe.min.js"></script>
-    <!-- AR.jsの読み込み -->
-    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
-    <!-- gltfアニメーション再生用のextras読み込み -->
-    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.0/dist/aframe-extras.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Year Card</title>
+  <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
+  <!-- gltfアニメーション再生用のextras読み込み -->
+  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.0/dist/aframe-extras.min.js"></script>
 </head>
 
-<!-- page body -->
+<!-- ページ内容 -->
 <body style="margin:0; padding:0">
-    <!-- debug用UIは非表示に設定 -->
-    <a-scene embedded arjs="debugUIEnabled: false" vr-mode-ui="enabled: false">
-        
-        <!-- 3Dアイテムのプリロード -->
-        <a-assets>
-            <a-asset-item id="mouse" src="models/mouse.gltf">
-            </a-asset-item>
-        </a-assets>
-
-        <!-- HIROマーカー読み込み時にモデル・テキストの表示 -->
-        <a-marker preset="hiro">
-            <a-gltf-model src="#mouse" position="0 0 0" rotation="90 0 0"></a-gltf-model>
-            <a-text position="0 3 0" rotation="90 0 0" value="Happy New Year!" color="black"></a-text>
-        </a-marker>
-        
-        <!-- カメラの設置 -->
-        <a-entity camera></a-entity>
-    </a-scene>
+  <a-scene embedded arjs="debugUIEnabled: false" vr-mode-ui="enabled: false">
+    <!-- プリロード -->
+    <a-assets>
+      <a-asset-item id="mouse" src="models/mouse.gltf">
+      </a-asset-item>
+    </a-assets>
+      
+    <a-marker preset="hiro">
+        <a-gltf-model src="#mouse" position="0 0 0" rotation="90 0 0"></a-gltf-model>
+        <a-text position="0 3 0" rotation="90 0 0" value="Happy New Year!" color="black"></a-text>
+    </a-marker>
+    
+    <!-- カメラの設置 -->
+    <a-entity camera></a-entity>
+  </a-scene>
 </body>
 </html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+
+<!-- header file -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>New Year Card</title>
+    <!-- A-Frmaeの読み込み -->
+    <script src="https://aframe.io/release/0.8.2/aframe.min.js"></script>
+    <!-- AR.jsの読み込み -->
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
+    <!-- gltfアニメーション再生用のextras読み込み -->
+    <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.0/dist/aframe-extras.min.js"></script>
+</head>
+
+<!-- page body -->
+<body style="margin:0; padding:0">
+    <a-scene embedded arjs="debugUIEnabled:false;">
+        <!-- カメラのプリロード -->
+        <a-entity camera></a-entity>
+        <!-- 3Dアイテムのプリロード -->
+        <a-assets>
+            <a-asset-item id="mouse" src="models/mouse.gltf">
+            </a-asset-item>
+        </a-assets>
+
+        <!-- HIROマーカー読み込み時にモデル・テキストの表示 -->
+        <a-marker preset="hiro">
+            <a-gltf-model src="#mouse"></a-gltf-model>
+            <a-text position="0 3 0" value="Happy New Year!" color="black"></a-text>
+        </a-marker>
+    </a-scene>
+</body>
+</html>

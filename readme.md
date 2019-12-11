@@ -1,4 +1,4 @@
-# 0e1ka10/ARjs
+# ARjs
 This repository is for Web AR Application using AR.js and A-Frame
 
 ## App list

@@ -15,14 +15,13 @@
 <!-- ページ内容 -->
 <body style="margin:0; padding:0">
   <a-scene embedded arjs="debugUIEnabled: false" vr-mode-ui="enabled: false">
-    <!-- プリロード -->
+    <!-- モデルのプリロード -->
     <a-assets>
-      <a-asset-item id="mouse" src="models/mouse.gltf">
-      </a-asset-item>
+      <a-asset-item id="mouse" src="models/mouse.glb"></a-asset-item>
     </a-assets>
-    <a-gltf-model src="#mouse"></a-gltf-model>
+
     <a-marker preset="hiro">
-        <a-gltf-model src="#mouse" position="0 0 0" rotation="90 0 0"></a-gltf-model>
+        <a-entity gltf-model="#mouse" scale="0.5 0.5 0.5" position="0 0 0" rotation="90 0 0"></a-entity>
         <a-text position="0 3 0" rotation="90 0 0" value="Happy New Year!" color="black"></a-text>
     </a-marker>
     

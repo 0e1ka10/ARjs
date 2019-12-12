@@ -15,18 +15,41 @@
 <!-- ページ内容 -->
 <body style="margin:0; padding:0">
   <a-scene embedded arjs="debugUIEnabled: false" vr-mode-ui="enabled: false">
-    <!-- モデルのプリロード -->
+    <!-- 各種データのプリロード -->
     <a-assets>
       <a-asset-item id="mouse" src="models/mouse.glb"></a-asset-item>
+      <audio id="SpringSea" src="sounds/SpringSea.mp3" preload="auto"></audio>
     </a-assets>
 
     <a-marker preset="hiro">
-        <a-entity gltf-model="#mouse" scale="0.01 0.01 0.01" position="0 0 0" rotation="0 90 0"></a-entity>
-        <a-entity text="text: A HAPPY NEW YEAR!" position="0 10 0" rotation="0 90 0" color="black"></a-entity>
+        <a-entity gltf-model="#mouse" scale="0.01 0.01 0.01" position="0 0 0" rotation="0 90 0" playSound></a-entity>
+        <a-text
+          value="A Happy New Year!"
+          position=" 0 0 1"
+          align="center"
+          rotation="-90 0 0"
+          color="#DD4827">
+        </a-text>
     </a-marker>
     
     <!-- カメラの設置 -->
     <a-entity camera></a-entity>
+    <a-entity sound="src: #SpringSea" autoplay="true"></a-entity>
   </a-scene>
 </body>
 </html>
+
+<!-- JavaScript -->
+<script>
+AFRAME.registerComponent('playSound', {
+    tick: function () {
+           var entity1 = document.querySelector('[SpringSea]');
+         if (document.querySelector('a-marker').object3D.visible == true) {
+            entity1.components.sound.playSound();
+        } else {
+            entity1.components.sound.pauseSound();
+        }
+
+     }
+});
+</script>
